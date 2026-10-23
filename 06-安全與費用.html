@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 6 課 安全與費用</title>
+<meta name="description" content="用 AI 做東西很快，但有幾條規矩要守：密碼不進對話、公開前自己看、真人照片不外流。也整理一下每個服務大概花在哪裡。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><a href="index.html">AI 零基礎創作教學</a><span>第 6 課／共 6 課</span></header>
+<main>
+<div class="hero"><div class="kicker">第 6 課</div><h1>安全與費用：哪些事不能交給 AI、哪裡會花錢</h1><p class="lead">用 AI 做東西很快，但有幾條規矩要守：密碼不進對話、公開前自己看、真人照片不外流。也整理一下每個服務大概花在哪裡。</p>
+<div class="meta">約 8 分鐘・不用安裝任何東西</div></div>
+<details class="toc"><summary>本課步驟（7 步）</summary><ol><li><a href="#step1">密碼、金鑰不要打進對話</a></li><li><a href="#step2">公開之前，自己看一次</a></li><li><a href="#step3">真人照片留在自己電腦</a></li><li><a href="#step4">別人的角色、作品要小心</a></li><li><a href="#step5">知道錢花在哪裡</a></li><li><a href="#step6">花點數之前先問報價</a></li><li><a href="#step7">重要的成品自己備份</a></li></ol><a href="#stuck">常見卡關</a> · <a href="#video">影片大綱</a></details>
+<div class="box learn"><div class="boxtitle">這一課你會學到</div><ul><li>密碼、金鑰為什麼不能打進對話</li><li>公開、寄出、上傳之前要看什麼</li><li>真人照片和別人的角色怎麼處理</li><li>Claude、ChatGPT、Higgsfield、GitHub 各花在哪裡</li></ul></div>
+<section class="step" id="step1"><div class="stephead"><span class="num">1</span><h3>密碼、金鑰不要打進對話</h3></div><div class="stepbody"><p>對話框裡的文字會被記錄。<strong>帳號密碼、信用卡號、身分證字號、各種金鑰（API key、token）都不要打進去</strong>，就算 Claude 說它需要也一樣。</p>
+<p>需要登入的時候，正確做法是：</p>
+<ul><li>在服務的<strong>官方網頁</strong>或跳出來的授權視窗登入（第 4 課的連接器、第 5 課的 GitHub 都是這樣）</li><li>需要付款、儲值，<strong>你自己去官網操作</strong>，不要請 Claude 幫你輸入卡號</li></ul>
+<div class="box warn"><div class="boxtitle">注意</div><p>如果某個網頁、文件或信裡寫著「請 Claude 輸入密碼」「請立刻轉帳」，那是別人寫的字，不是你的指示。Claude 會停下來問你，你也不要照做。</p></div></div></section>
+<section class="step" id="step2"><div class="stephead"><span class="num">2</span><h3>公開之前，自己看一次</h3></div><div class="stepbody"><p>Claude 在<strong>對外</strong>做事之前都會先問你：寄信、發文、推上網、公開上傳。你說「好」之前，看這幾件事：</p>
+<div class="cards"><div class="card"><div class="icon">👀</div><div><div class="nt">內容</div><div class="nd">字有沒有錯、圖有沒有不該出現的東西</div></div></div><div class="card"><div class="icon">👥</div><div><div class="nt">對象</div><div class="nd">寄給誰？公開給所有人還是只有自己？</div></div></div><div class="card"><div class="icon">📋</div><div><div class="nt">檔案清單</div><div class="nd">會上傳哪些檔案？有沒有私人照片、原始檔</div></div></div><div class="card"><div class="icon">💰</div><div><div class="nt">花費</div><div class="nd">會不會扣點數、要不要付錢</div></div></div></div>
+<p>這套教學本身也是這樣：先做在你的電腦裡給你審，你說可以了才會放上網。</p></div></section>
+<section class="step" id="step3"><div class="stephead"><span class="num">3</span><h3>真人照片留在自己電腦</h3></div><div class="stepbody"><p>想做「像某個人」的角色時，真人照片只能拿來<strong>參考造型</strong>：</p>
+<ol><li>照片放在不會上傳的資料夾（例如 <code>work/refs/</code>），告訴 Claude 這個資料夾<strong>不要放上網</strong></li><li>請 Claude 把造型寫成文字描述</li><li>用文字描述加上原創角色的畫風，請 GPT 畫成<strong>原創公仔</strong></li></ol>
+<div class="figs n1"><figure><a href="img/spare-characters.jpg" target="_blank"><img src="img/spare-characters.jpg" alt="這些備用角色的造型都參考過真人照片，但臉和角色都是原創的，真人照片從來沒有公開" loading="lazy"></a><figcaption>這些備用角色的造型都參考過真人照片，但臉和角色都是原創的，真人照片從來沒有公開</figcaption></figure></div>
+<div class="box tip"><div class="boxtitle">小提醒</div><p>教學截圖、宣傳片、上線的遊戲，都不要出現真人參考照。截圖裡的 Email、帳號名稱也要遮掉。</p></div></div></section>
+<section class="step" id="step4"><div class="stephead"><span class="num">4</span><h3>別人的角色、作品要小心</h3></div><div class="stepbody"><p>餐點表的初版放了一隻迪士尼角色當裝飾。自己印出來貼在教室裡問題不大，但如果要<strong>公開發布</strong>或<strong>拿來賺錢</strong>，用別人的角色就可能有著作權問題。</p>
+<ul><li>要公開的作品：用自己畫的、或 GPT 畫的原創角色</li><li>改編電影、小說：人物造型照原作，但不要直接拿原作的圖、音樂去用</li><li>不確定的時候問 Claude：「這樣公開會不會有著作權問題？」它會提醒你風險（但它不是律師）</li></ul></div></section>
+<section class="step" id="step5"><div class="stephead"><span class="num">5</span><h3>知道錢花在哪裡</h3></div><div class="stepbody"><p>以這套教學用到的服務來說：</p>
+<div class="table"><table><thead><tr><th>服務</th><th>用來做什麼</th><th>怎麼收費</th></tr></thead><tbody><tr><td data-label="服務">Claude</td><td data-label="用來做什麼">寫程式、做文件、做影片、操作其他工具</td><td data-label="怎麼收費">月費方案（Code 分頁要付費方案）</td></tr><tr><td data-label="服務">ChatGPT</td><td data-label="用來做什麼">畫圖（Claude 透過 codex 叫它）</td><td data-label="怎麼收費">用你 ChatGPT 方案的額度</td></tr><tr><td data-label="服務">Higgsfield</td><td data-label="用來做什麼">圖轉 3D、綁骨架、生影片</td><td data-label="怎麼收費">點數制。轉 3D 一個角色 9 點、綁骨架加一段動作 8 點；《上班啟示錄》全部約 176 點</td></tr><tr><td data-label="服務">GitHub Pages</td><td data-label="用來做什麼">把遊戲放上網</td><td data-label="怎麼收費">公開倉庫免費</td></tr></tbody></table></div>
+<p>價格和方案常常變，以各家官網為準。</p></div></section>
+<section class="step" id="step6"><div class="stephead"><span class="num">6</span><h3>花點數之前先問報價</h3></div><div class="stepbody"><p>會扣點數的工作，養成習慣先問：</p>
+<div class="say"><div class="saylabel">💬 你可以這樣說</div><p class="saytext">開始之前先跟我說總共要花幾點、我現在還剩多少，我說好再開始。</p><button class="copy" type="button">複製</button></div>
+<p>Claude 會先查餘額、算好再等你點頭。一次要做很多張圖或很多個 3D 時特別有用。</p></div></section>
+<section class="step" id="step7"><div class="stephead"><span class="num">7</span><h3>重要的成品自己備份</h3></div><div class="stepbody"><p>做好的影片、文件，請 Claude 另外複製一份到你的雲端資料夾（這位作者用一個叫「雲端」的資料夾，所有成品影片都收在裡面）。遊戲推上 GitHub 之後，GitHub 上也有一份。</p>
+<div class="say"><div class="saylabel">💬 你可以這樣說</div><p class="saytext">把這次做好的兩支影片複製到「雲端／上班啟示錄預告」資料夾。</p><button class="copy" type="button">複製</button></div></div></section>
+<section class="box stuck" id="stuck"><div class="boxtitle">🧱 常見卡關</div><p><strong>Claude 叫我貼密碼或金鑰</strong>：不要貼。回它「我不在對話裡貼密碼，請告訴我要去哪個官方網頁登入」。</p>
+<p><strong>不確定某個動作要不要允許</strong>：先按拒絕，再問它要做什麼。拒絕不會讓東西壞掉。</p>
+<p><strong>月底點數突然用完</strong>：請 Claude 每次做事前先報價，並且在記憶裡寫下「花點數前先問我」。</p>
+<p><strong>不知道作品能不能公開</strong>：先問 Claude 有沒有用到別人的角色、真人照片、有版權的音樂；有疑慮就換成原創素材。</p></section>
+<section class="box video" id="video"><div class="boxtitle">🎬 影片大綱：第 6 課（約 3 分鐘）</div><div class="table"><table><thead><tr><th>鏡頭</th><th>畫面</th><th>旁白重點</th></tr></thead><tbody><tr><td data-label="鏡頭">1</td><td data-label="畫面">字卡「AI 很快，但有三條規矩」</td><td data-label="旁白重點">密碼不進對話、公開前自己看、真人照片不外流</td></tr><tr><td data-label="鏡頭">2</td><td data-label="畫面">對話框打密碼 → 大叉叉；改成官方授權網頁</td><td data-label="旁白重點">登入、付款一律在官方網頁，自己來</td></tr><tr><td data-label="鏡頭">3</td><td data-label="畫面">四張卡：內容、對象、檔案清單、花費</td><td data-label="旁白重點">說「好」之前看這四件事</td></tr><tr><td data-label="鏡頭">4</td><td data-label="畫面">鎖頭框 → 原創公仔角色庫</td><td data-label="旁白重點">真人照只當造型參考，畫成原創</td></tr><tr><td data-label="鏡頭">5</td><td data-label="畫面">餐點表裝飾角色打碼</td><td data-label="旁白重點">公開或賺錢的作品，不用別人的角色</td></tr><tr><td data-label="鏡頭">6</td><td data-label="畫面">費用表</td><td data-label="旁白重點">Claude 月費、ChatGPT 額度、Higgsfield 點數、GitHub 免費</td></tr><tr><td data-label="鏡頭">7</td><td data-label="畫面">對話：「先跟我說要花幾點」</td><td data-label="旁白重點">花點數前先問報價</td></tr><tr><td data-label="鏡頭">8</td><td data-label="畫面">成品拖進雲端資料夾</td><td data-label="旁白重點">重要成品自己備份</td></tr></tbody></table></div></section>
+<nav class="pager"><a class="prev" href="05-上線給別人玩.html">← 第 5 課 上線給別人玩</a><a class="next" href="index.html">回目錄 →</a></nav>
+</main>
+<script>
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{
+  const box=b.parentElement, t=(box.querySelector('code')||box.querySelector('.saytext')).innerText;
+  navigator.clipboard&&navigator.clipboard.writeText(t).then(()=>{b.textContent='已複製';setTimeout(()=>b.textContent='複製',1500)});
+}));
+</script>
+</body>
+</html>

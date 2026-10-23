@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 4 課 連接網路服務</title>
+<meta name="description" content="「連接器」就像幫 Claude 插上一條線，讓它可以直接操作別的網站服務。例子是用 Higgsfield 把 GPT 畫的三視圖變成 3D、加上走路動作，放進遊戲。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><a href="index.html">AI 零基礎創作教學</a><span>第 4 課／共 6 課</span></header>
+<main>
+<div class="hero"><div class="kicker">第 4 課</div><h1>幫 Claude 接上網路服務：把角色圖變成會走路的 3D 模型</h1><p class="lead">「連接器」就像幫 Claude 插上一條線，讓它可以直接操作別的網站服務。例子是用 Higgsfield 把 GPT 畫的三視圖變成 3D、加上走路動作，放進遊戲。</p>
+<div class="meta">約 15 分鐘・需要 Higgsfield 帳號（3D 要花點數）</div></div>
+<details class="toc"><summary>本課步驟（10 步）</summary><ol><li><a href="#step1">連接器是什麼</a></li><li><a href="#step2">打開設定裡的「連接器」</a></li><li><a href="#step3">加入 Higgsfield，登入授權</a></li><li><a href="#step4">確認連上了</a></li><li><a href="#step5">實作 1：三視圖切成四個視角</a></li><li><a href="#step6">實作 2：轉成 3D 模型</a></li><li><a href="#step7">實作 3：綁骨架、加走路動作</a></li><li><a href="#step8">實作 4：放進遊戲</a></li><li><a href="#step9">跳出詢問時：什麼該說好、什麼該說不</a></li><li><a href="#step10">其他常用的連接</a></li></ol><a href="#stuck">常見卡關</a> · <a href="#video">影片大綱</a></details>
+<div class="box learn"><div class="boxtitle">這一課你會學到</div><ul><li>連接器（也叫 MCP）是什麼、授權是什麼意思</li><li>怎麼加入 Higgsfield 並登入授權</li><li>三視圖 → 3D 模型 → 綁骨架加走路動作，整個流程</li><li>Claude 跳出詢問時，什麼該說好、什麼該說不</li><li>其他常用的連接：Gmail、Google 雲端、GitHub</li></ul></div>
+<section class="step" id="step1"><div class="stephead"><span class="num">1</span><h3>連接器是什麼</h3></div><div class="stepbody"><p>Claude 本來只能在你的電腦裡做事。<strong>連接器</strong>讓它可以去操作網路上的服務，例如叫 Higgsfield 做 3D、幫你在 Gmail 寫草稿。</p>
+<p>接上連接器要經過一次<strong>授權</strong>：你自己登入那個服務、按「允許」，服務會發一張「通行證」給 Claude。Claude 拿到的是通行證，<strong>不是你的密碼</strong>；不想用了，隨時可以在設定裡拔掉。</p>
+<div class="cards"><div class="card"><div class="icon">🧊</div><div><div class="nt">Higgsfield</div><div class="nd">圖轉 3D、綁骨架、加動作；也能做影片（花點數）</div></div></div><div class="card"><div class="icon">✉️</div><div><div class="nt">Gmail</div><div class="nd">找信、讀信、寫草稿；寄出前一定先問你</div></div></div><div class="card"><div class="icon">📂</div><div><div class="nt">Google 雲端／文件</div><div class="nd">讀寫雲端文件</div></div></div><div class="card"><div class="icon">🐙</div><div><div class="nt">GitHub</div><div class="nd">把作品放上網（第 5 課；用的是電腦上的 GitHub 工具）</div></div></div></div></div></section>
+<section class="step" id="step2"><div class="stephead"><span class="num">2</span><h3>打開設定裡的「連接器」</h3></div><div class="stepbody"><p>在 Claude 的設定裡找到「連接器」（Connectors），會看到可以加入的服務清單。</p>
+<div class="shot"><div class="shotcode">待補截圖 F</div><div class="shottitle">設定 → 連接器頁面</div><div class="shotbody"><p>需要：Claude 設定裡的連接器清單，看得到 Higgsfield、Gmail 等項目和「連接」按鈕。</p></div></div></div></section>
+<section class="step" id="step3"><div class="stephead"><span class="num">3</span><h3>加入 Higgsfield，登入授權</h3></div><div class="stepbody"><p>按 Higgsfield 旁邊的「連接」，會跳到 Higgsfield 的官方網頁。<strong>在那個網頁登入</strong>，看清楚它要的權限，按允許，回到 Claude。</p>
+<div class="box warn"><div class="boxtitle">注意</div><p>帳號密碼只在服務的<strong>官方網頁</strong>輸入。Claude 的對話框裡不要打密碼、不要貼金鑰。</p></div>
+<div class="shot"><div class="shotcode">待補截圖 G</div><div class="shottitle">Higgsfield 授權登入頁</div><div class="shotbody"><p>需要：按「連接」後跳出的 Higgsfield 登入／允許畫面。帳號資料會遮掉。</p></div></div></div></section>
+<section class="step" id="step4"><div class="stephead"><span class="num">4</span><h3>確認連上了</h3></div><div class="stepbody"><p>回到 Code 分頁，直接問：</p>
+<div class="say"><div class="saylabel">💬 你可以這樣說</div><p class="saytext">Higgsfield 連上了嗎？我現在還有多少點？</p><button class="copy" type="button">複製</button></div>
+<p>Claude 會去查你的點數餘額。查得到就代表接好了。</p></div></section>
+<section class="step" id="step5"><div class="stephead"><span class="num">5</span><h3>實作 1：三視圖切成四個視角</h3></div><div class="stepbody"><p>要轉 3D 的服務（Tripo 多視角轉 3D）需要四張圖：<strong>正面、左側、背面、右側</strong>。Claude 會寫一個小程式，把 GPT 畫的三視圖切開，側面再左右翻一次當另一邊。</p>
+<div class="views">
+<div style="background-image:url(img/kui-sheet.jpg);background-position:0% 0"><span>1 正面</span></div>
+<div class="mirror" style="background-image:url(img/kui-sheet.jpg);background-position:50% 0"><span>2 左側</span></div>
+<div style="background-image:url(img/kui-sheet.jpg);background-position:100% 0"><span>3 背面</span></div>
+<div style="background-image:url(img/kui-sheet.jpg);background-position:50% 0"><span>4 右側</span></div>
+</div>
+<p>順序一定要對。真實踩過的坑：順序錯了，轉出來的頭會變形。</p></div></section>
+<section class="step" id="step6"><div class="stephead"><span class="num">6</span><h3>實作 2：轉成 3D 模型</h3></div><div class="stepbody"><div class="say"><div class="saylabel">💬 你可以這樣說</div><p class="saytext">把小葵的三視圖切成四個視角，用 Higgsfield 的 Tripo 多視角轉 3D。開始前先跟我說要花幾點。</p><button class="copy" type="button">複製</button></div>
+<p>Claude 會把四張圖上傳到 Higgsfield、送出轉檔、等它做好再下載模型檔（<code>.glb</code>）。這一步一個角色 <strong>9 點</strong>。</p></div></section>
+<section class="step" id="step7"><div class="stephead"><span class="num">7</span><h3>實作 3：綁骨架、加走路動作</h3></div><div class="stepbody"><p>模型轉好後只是一尊公仔，不會動。再請 Higgsfield <strong>綁骨架</strong>並加一段動作（慢走、小跑），一個角色加一段動作 <strong>8 點</strong>。</p>
+<div class="figs n1"><figure><a href="img/walk3d.jpg" target="_blank"><img src="img/walk3d.jpg" alt="綁好骨架、會走路的上班族 3D 模型" loading="lazy"></a><figcaption>綁好骨架、會走路的上班族 3D 模型</figcaption></figure></div>
+<p>真實踩過的坑：</p>
+<ul><li><strong>沒先轉正就綁骨架</strong>：角色走路像螃蟹橫著走。要請 Claude 先把模型的臉轉到正前方再綁。</li><li><strong>步伐太怪</strong>：動作播太快、腳會滑。Claude 會量動作原本的步幅，讓播放速度配合移動速度。</li><li>驗收時<strong>看側面走路</strong>最準。</li></ul>
+<div class="figs n1"><figure class="phone"><a href="img/walk-side.jpg" target="_blank"><img src="img/walk-side.jpg" alt="驗收：從側面看小葵走路" loading="lazy"></a><figcaption>驗收：從側面看小葵走路</figcaption></figure></div></div></section>
+<section class="step" id="step8"><div class="stephead"><span class="num">8</span><h3>實作 4：放進遊戲</h3></div><div class="stepbody"><p>模型檔太大手機會跑不動，Claude 會先壓縮（大約 5 MB 壓到 0.4 MB），再放進遊戲。整個《上班啟示錄》的 3D 一共花了大約 176 點。</p>
+<div class="figs n1"><figure><a href="img/game-kevin.jpg" target="_blank"><img src="img/game-kevin.jpg" alt="特助 Kevin：GPT 畫三視圖 → Higgsfield 轉 3D、綁走路 → 在遊戲裡走來走去" loading="lazy"></a><figcaption>特助 Kevin：GPT 畫三視圖 → Higgsfield 轉 3D、綁走路 → 在遊戲裡走來走去</figcaption></figure></div></div></section>
+<section class="step" id="step9"><div class="stephead"><span class="num">9</span><h3>跳出詢問時：什麼該說好、什麼該說不</h3></div><div class="stepbody"><p>用連接器時，Claude 每次要動用那個服務都可能先問你。判斷方法：</p>
+<div class="table"><table><thead><tr><th>它要做的事</th><th>例子</th><th>怎麼辦</th></tr></thead><tbody><tr><td data-label="它要做的事">查資料、看餘額</td><td data-label="例子">查 Higgsfield 點數、找某封信</td><td data-label="怎麼辦">允許</td></tr><tr><td data-label="它要做的事"><strong>花錢、花點數</strong></td><td data-label="例子">轉 3D、生影片</td><td data-label="怎麼辦">先問「要花多少點？」，數字合理再允許</td></tr><tr><td data-label="它要做的事"><strong>代表你對外發東西</strong></td><td data-label="例子">寄信、發文、公開上傳</td><td data-label="怎麼辦">先看清楚內容和對象再允許</td></tr><tr><td data-label="它要做的事">刪除</td><td data-label="例子">刪檔案、刪信</td><td data-label="怎麼辦">除非你明確要它刪，否則拒絕</td></tr></tbody></table></div>
+<div class="box tip"><div class="boxtitle">小提醒</div><p>不確定就按「拒絕」，然後問「你剛剛要做什麼？為什麼？」。拒絕不會壞掉任何東西，Claude 會換方法或解釋給你聽。</p></div></div></section>
+<section class="step" id="step10"><div class="stephead"><span class="num">10</span><h3>其他常用的連接</h3></div><div class="stepbody"><ul><li><strong>Gmail</strong>：「幫我找上週托育中心寄來的信」「照這封信寫一封回覆草稿」。草稿可以先寫，<strong>寄出前 Claude 一定會先問你</strong>。</li><li><strong>Google 雲端／文件</strong>：讀雲端上的資料、把成品存成 Google 文件。</li><li><strong>GitHub</strong>：把遊戲放上網。這個不是在連接器頁面接，而是電腦上的 GitHub 工具，第一次在瀏覽器授權一次，第 5 課會教。</li></ul></div></section>
+<section class="box stuck" id="stuck"><div class="boxtitle">🧱 常見卡關</div><p><strong>授權完了 Claude 還說沒連上</strong>：回到設定的連接器頁看狀態，必要時重新連一次，再開一個新對話試試。</p>
+<p><strong>點數不夠</strong>：先問 Claude「這樣做要花多少點」，再決定要不要儲值，或先做最重要的角色。</p>
+<p><strong>上傳圖片失敗</strong>：請 Claude 換個方式重傳。如果一直失敗就停下來，請它說明卡在哪裡。</p>
+<p><strong>3D 角色的頭變形</strong>：四個視角的順序錯了。正面、左側、背面、右側。</p>
+<p><strong>角色走路像螃蟹</strong>：綁骨架前沒有先把臉轉到正前方，要重新轉正再綁一次（會再花點數，所以第一次就要提醒 Claude）。</p>
+<p><strong>不小心按了允許</strong>：大部分動作可以補救。馬上告訴 Claude「剛剛那個先停下來」，問它做了什麼。</p></section>
+<section class="box video" id="video"><div class="boxtitle">🎬 影片大綱：第 4 課（約 5 分鐘）</div><div class="table"><table><thead><tr><th>鏡頭</th><th>畫面</th><th>旁白重點</th></tr></thead><tbody><tr><td data-label="鏡頭">1</td><td data-label="畫面">小葵三視圖 → 3D 模型轉一圈 → 在遊戲裡走路</td><td data-label="旁白重點">「一張圖，變成會走路的 3D 角色。」</td></tr><tr><td data-label="鏡頭">2</td><td data-label="畫面">插頭動畫：Claude 接上 Higgsfield、Gmail、GitHub</td><td data-label="旁白重點">連接器＝讓 Claude 操作網路服務；授權給的是通行證，不是密碼</td></tr><tr><td data-label="鏡頭">3</td><td data-label="畫面">設定 → 連接器 → 連接 Higgsfield（帳號打碼）</td><td data-label="旁白重點">密碼只在官方網頁輸入</td></tr><tr><td data-label="鏡頭">4</td><td data-label="畫面">對話：「我還有多少點？」</td><td data-label="旁白重點">查得到點數就是接好了</td></tr><tr><td data-label="鏡頭">5</td><td data-label="畫面">三視圖切成四格，標順序</td><td data-label="旁白重點">正、左、背、右，順序錯頭會變形</td></tr><tr><td data-label="鏡頭">6</td><td data-label="畫面">對話：「開始前先說要花幾點」</td><td data-label="旁白重點">轉 3D 9 點、綁骨架加動作 8 點</td></tr><tr><td data-label="鏡頭">7</td><td data-label="畫面">螃蟹走路 vs 正常走路（側面）</td><td data-label="旁白重點">綁骨架前先轉正，看側面驗收</td></tr><tr><td data-label="鏡頭">8</td><td data-label="畫面">Kevin 在遊戲裡走</td><td data-label="旁白重點">壓縮後放進遊戲，整個專案約 176 點</td></tr><tr><td data-label="鏡頭">9</td><td data-label="畫面">允許／拒絕對照表</td><td data-label="旁白重點">查資料可以，花錢、對外發、刪除要看清楚</td></tr><tr><td data-label="鏡頭">10</td><td data-label="畫面">Gmail、Google、GitHub 三張卡</td><td data-label="旁白重點">其他常用連接，GitHub 下一課教</td></tr></tbody></table></div></section>
+<nav class="pager"><a class="prev" href="03-操控GPT畫圖.html">← 第 3 課 叫 GPT 畫圖</a><a class="next" href="05-上線給別人玩.html">第 5 課 上線給別人玩 →</a></nav>
+</main>
+<script>
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{
+  const box=b.parentElement, t=(box.querySelector('code')||box.querySelector('.saytext')).innerText;
+  navigator.clipboard&&navigator.clipboard.writeText(t).then(()=>{b.textContent='已複製';setTimeout(()=>b.textContent='複製',1500)});
+}));
+</script>
+</body>
+</html>

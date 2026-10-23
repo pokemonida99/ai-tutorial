@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 3 課 叫 GPT 畫圖</title>
+<meta name="description" content="Claude 自己不會畫圖，但它可以替你操作 ChatGPT 的畫圖功能：寫提示詞、一次排好幾張、把圖收進資料夾。例子是《上班啟示錄》的角色設計。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><a href="index.html">AI 零基礎創作教學</a><span>第 3 課／共 6 課</span></header>
+<main>
+<div class="hero"><div class="kicker">第 3 課</div><h1>讓 Claude 幫你叫 GPT 畫圖：從企劃圖到角色三視圖</h1><p class="lead">Claude 自己不會畫圖，但它可以替你操作 ChatGPT 的畫圖功能：寫提示詞、一次排好幾張、把圖收進資料夾。例子是《上班啟示錄》的角色設計。</p>
+<div class="meta">約 15 分鐘・需要 ChatGPT 桌面版和 ChatGPT 帳號</div></div>
+<details class="toc"><summary>本課步驟（8 步）</summary><ol><li><a href="#step1">安裝 ChatGPT 桌面版並登入</a></li><li><a href="#step2">跟 Claude 說：以後畫圖用 GPT</a></li><li><a href="#step3">Claude 實際下的指令（看得懂就好）</a></li><li><a href="#step4">先畫企劃圖，決定要做什麼</a></li><li><a href="#step5">畫角色三視圖</a></li><li><a href="#step6">真人照片只當造型參考，畫成原創角色</a></li><li><a href="#step7">一次畫一整批</a></li><li><a href="#step8">看圖、挑錯、請它重畫</a></li></ol><a href="#stuck">常見卡關</a> · <a href="#video">影片大綱</a></details>
+<div class="box learn"><div class="boxtitle">這一課你會學到</div><ul><li>ChatGPT 桌面版裡藏著一個叫 <code>codex</code> 的指令工具，Claude 可以用它叫 GPT 畫圖</li><li>怎麼請 Claude 畫企劃圖、角色三視圖</li><li>真人照片只當造型參考，怎麼變成原創角色</li><li>一次畫一整批、挑錯、重畫</li></ul></div>
+<div class="flow"><div class="node"><div class="icon">🙋</div><div class="nt">你</div><div class="nd">說要畫什麼、給參考圖</div></div><div class="arrow" aria-hidden="true"></div><div class="node"><div class="icon">🤖</div><div class="nt">Claude</div><div class="nd">寫英文提示詞</div></div><div class="arrow" aria-hidden="true"></div><div class="node"><div class="icon">🎨</div><div class="nt">GPT</div><div class="nd">用你的 ChatGPT 帳號畫圖</div></div><div class="arrow" aria-hidden="true"></div><div class="node"><div class="icon">📁</div><div class="nt">資料夾</div><div class="nd">Claude 把圖收進 design/</div></div></div><div class="flowcap">你只要說「畫一個角色」，中間的事 Claude 會跑完</div>
+<section class="step" id="step1"><div class="stephead"><span class="num">1</span><h3>安裝 ChatGPT 桌面版並登入</h3></div><div class="stepbody"><p>到 <a href="https://chatgpt.com/download" target="_blank" rel="noopener">chatgpt.com/download</a> 下載桌面版，安裝後用你的 ChatGPT 帳號登入。</p>
+<div class="figs n1"><figure><a href="img/chatgpt-download.jpg" target="_blank"><img src="img/chatgpt-download.jpg" alt="ChatGPT 官網下載頁。桌面版裡已經包含 Codex" loading="lazy"></a><figcaption>ChatGPT 官網下載頁。桌面版裡已經包含 Codex</figcaption></figure></div>
+<p>裝好之後，電腦裡就有一個叫 <code>codex</code> 的指令工具（放在 ChatGPT 這個 app 裡面）。你不用自己打開它，Claude 會在背景叫它。</p>
+<div class="box tip"><div class="boxtitle">小提醒</div><p>畫圖用的是你自己 ChatGPT 帳號的額度，不會花 Claude 的額度。額度多少看你的 ChatGPT 方案。</p></div></div></section>
+<section class="step" id="step2"><div class="stephead"><span class="num">2</span><h3>跟 Claude 說：以後畫圖用 GPT</h3></div><div class="stepbody"><p>第一次只要講一次，Claude 會記在記憶裡：</p>
+<div class="say"><div class="saylabel">💬 你可以這樣說</div><p class="saytext">以後要畫靜態圖片，都用 ChatGPT 裡的 codex 幫我畫，不要用別的服務。畫好的圖放到這個作品的 design 資料夾。</p><button class="copy" type="button">複製</button></div>
+<p>第一次叫 codex 時，Claude 可能會跳出權限詢問（要執行 ChatGPT 裡的程式），允許就好。</p></div></section>
+<section class="step" id="step3"><div class="stephead"><span class="num">3</span><h3>Claude 實際下的指令（看得懂就好）</h3></div><div class="stepbody"><p>這是《上班啟示錄》真正用的指令，你不用背，知道它在做什麼就好：</p>
+<div class="code"><pre><code>/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex exec --skip-git-repo-check "Generate one image with your image generation tool: &lt;提示詞&gt;" -i 參考圖.png &lt; /dev/null</code></pre><button class="copy" type="button">複製</button></div>
+<div class="table"><table><thead><tr><th>這一段</th><th>意思</th></tr></thead><tbody><tr><td data-label="這一段"><code>…/ChatGPT.app/…/codex</code></td><td data-label="意思">ChatGPT 桌面版裡附的指令工具</td></tr><tr><td data-label="這一段"><code>exec</code></td><td data-label="意思">「幫我做這件事」，做完就結束</td></tr><tr><td data-label="這一段"><code>"Generate one image …"</code></td><td data-label="意思">提示詞：要畫什麼</td></tr><tr><td data-label="這一段"><code>-i 參考圖.png</code></td><td data-label="意思">附上參考圖（可以好幾張）</td></tr></tbody></table></div>
+<p>畫好的圖會先存在 <code>~/.codex/generated_images/</code> 底下，Claude 再把它複製到作品的 <code>design</code> 資料夾、改成好認的檔名。</p></div></section>
+<section class="step" id="step4"><div class="stephead"><span class="num">4</span><h3>先畫企劃圖，決定要做什麼</h3></div><div class="stepbody"><p>還沒寫程式之前，先請 GPT 畫幾張「遊戲畫面長怎樣」的企劃圖。一張圖就能決定方向，省很多來回。</p>
+<div class="say"><div class="saylabel">💬 你可以這樣說</div><p class="saytext">參考這兩支手遊廣告的小遊戲，改成辦公室版：新人小葵什麼雜事都要做，一路升級。先用 GPT 畫幾張企劃圖給我挑：經營畫面、戰鬥畫面、場景道具、辦公室怪物。要 3D、可愛公仔風、顏色飽滿。</p><button class="copy" type="button">複製</button></div>
+<div class="figs n1"><figure><a href="img/concept.jpg" target="_blank"><img src="img/concept.jpg" alt="真實的企劃圖。最後只留「經營畫面」這條路，戰鬥和怪物沒有採用" loading="lazy"></a><figcaption>真實的企劃圖。最後只留「經營畫面」這條路，戰鬥和怪物沒有採用</figcaption></figure></div></div></section>
+<section class="step" id="step5"><div class="stephead"><span class="num">5</span><h3>畫角色三視圖</h3></div><div class="stepbody"><p>要轉成 3D 的角色，要畫成<strong>三視圖</strong>：同一個角色正面、側面、背面並排在一張圖裡。提示詞的重點（Claude 會幫你寫成英文）：</p>
+<ul><li>軟膠公仔、黏土質感，大頭 Q 版（頭大約佔身高三分之一）</li><li>一張圖並排三個視角：正面、面向右的側面、背面</li><li>站成 A 字形，手微微張開、腳微微打開，全身入鏡</li><li>淺灰色素背景、不要文字；<strong>手上不拿東西</strong>、脖子不要扭</li><li>髮型、眼鏡、衣服照參考，<strong>不要自己加飾品</strong></li></ul>
+<div class="figs n1"><figure><a href="img/characters.jpg" target="_blank"><img src="img/characters.jpg" alt="《上班啟示錄》的角色三視圖，全部是 GPT 畫的" loading="lazy"></a><figcaption>《上班啟示錄》的角色三視圖，全部是 GPT 畫的</figcaption></figure></div></div></section>
+<section class="step" id="step6"><div class="stephead"><span class="num">6</span><h3>真人照片只當造型參考，畫成原創角色</h3></div><div class="stepbody"><p>有時候你想要「像某個人那種穿搭」。真人照片可以給 Claude <strong>看</strong>，但不要直接拿去當角色的臉。正確流程是：Claude 看照片，把<strong>造型</strong>寫成文字描述，再請 GPT 照文字畫一個原創公仔。畫風則拿已經畫好的原創角色當參考。</p>
+<p>特助 Kevin 就是這樣來的：</p>
+<div class="compare">
+<div class="cbox locked"><div><div class="lock">🔒</div><b>真人造型照</b>只留在自己電腦<br>不公開、不上傳、不當畫圖參考</div></div>
+<div class="carrow">→</div>
+<div class="cbox"><b>文字描述（Claude 寫）</b>黑色兩側推短的短髮、瀏海往一邊撥、自信的細長眼、得意的小微笑、白色無線耳機、炭灰色西裝外套敞開、黑色高領毛衣、黑色窄管褲、黑皮鞋</div>
+<div class="carrow">→</div>
+<figure><img src="img/kevin-sheet.jpg" alt="GPT 畫的原創公仔 Kevin 三視圖" loading="lazy"><figcaption>GPT 畫的原創公仔</figcaption></figure>
+</div>
+<div class="figs n1"><figure><a href="img/style-ref-npc-m.jpg" target="_blank"><img src="img/style-ref-npc-m.jpg" alt="畫風參考：用已經畫好的原創上班族公仔，不用真人照" loading="lazy"></a><figcaption>畫風參考：用已經畫好的原創上班族公仔，不用真人照</figcaption></figure></div>
+<div class="say"><div class="saylabel">💬 你可以這樣說</div><p class="saytext">這張照片只是造型參考，不要畫成照片裡的人。把他的髮型和穿搭寫成文字，畫一個原創公仔三視圖，畫風參考上班族男生那張。</p><button class="copy" type="button">複製</button></div>
+<div class="box warn"><div class="boxtitle">為什麼要這麼麻煩？</div><p>直接拿真人照片去畫，臉和衣服會跟本人一模一樣，有肖像權的問題。真人照片留在自己電腦（例如 <code>work/refs/</code> 這種不會上傳的資料夾），教學、截圖、上傳都不要放。</p></div></div></section>
+<section class="step" id="step7"><div class="stephead"><span class="num">7</span><h3>一次畫一整批</h3></div><div class="stepbody"><p>角色多的時候，Claude 會把每個角色的提示詞存成一個檔案，再寫一個小程式一次跑完。《上班啟示錄》的做法：</p>
+<ul><li><code>work/jobs/</code> 資料夾：每個角色一個 <code>.prompt</code> 檔（提示詞），要附參考圖的再放一個 <code>.refs</code> 檔</li><li><code>work/gen2.sh</code>：讀提示詞、叫 codex 畫圖、把成品存成 <code>design/d_角色名.png</code></li><li>兩張同時畫時，Claude 會用每次的「工作編號」去找對應的圖，不會拿錯</li></ul>
+<div class="say"><div class="saylabel">💬 你可以這樣說</div><p class="saytext">再幫我畫四個備用角色，造型照這四張參考照片，一樣是公仔三視圖、原創臉。畫完排成一張總覽圖給我看。</p><button class="copy" type="button">複製</button></div>
+<div class="figs n1"><figure><a href="img/spare-characters.jpg" target="_blank"><img src="img/spare-characters.jpg" alt="一次畫好的備用角色庫，名字都是暫定的" loading="lazy"></a><figcaption>一次畫好的備用角色庫，名字都是暫定的</figcaption></figure></div></div></section>
+<section class="step" id="step8"><div class="stephead"><span class="num">8</span><h3>看圖、挑錯、請它重畫</h3></div><div class="stepbody"><p>GPT 畫的圖不一定每張都對。常見要重畫的情況：</p>
+<ul><li>角色<strong>回頭看鏡頭</strong>：脖子會扭得很奇怪，像恐怖片。請它「身體和臉朝同一個方向」。</li><li>手上<strong>多拿了東西</strong>、多了沒要求的<strong>飾品</strong>。</li><li>同一個角色每張<strong>長得不一樣</strong>：請它拿已經畫好的三視圖當參考圖再畫。</li></ul>
+<div class="say"><div class="saylabel">💬 你可以這樣說</div><p class="saytext">Kevin 的耳機太大了，換成小小的白色無線耳機，其他都不要改，重畫一次。</p><button class="copy" type="button">複製</button></div>
+<div class="figs n1"><figure><a href="img/icons.jpg" target="_blank"><img src="img/icons.jpg" alt="主畫面圖示也是 GPT 照角色三視圖畫的，四款讓玩家自己挑" loading="lazy"></a><figcaption>主畫面圖示也是 GPT 照角色三視圖畫的，四款讓玩家自己挑</figcaption></figure></div></div></section>
+<section class="box stuck" id="stuck"><div class="boxtitle">🧱 常見卡關</div><p><strong>Claude 說找不到 codex</strong>：ChatGPT 桌面版沒裝、沒登入，或版本太舊。打開 ChatGPT 更新一下再試。</p>
+<p><strong>提示詞好像被吃掉了，畫出奇怪的東西</strong>：提示詞要放在 <code>-i 參考圖</code> <strong>前面</strong>。跟 Claude 說「提示詞放在 -i 前面」，它就會改。</p>
+<p><strong>圖不知道跑去哪</strong>：先找 <code>~/.codex/generated_images/</code>，或直接問 Claude「剛剛那張圖在哪？」。</p>
+<p><strong>想要直式或橫式</strong>：長寬比要寫在提示詞裡，例如「9:16 直式」。</p>
+<p><strong>額度用完、一直失敗</strong>：ChatGPT 的生圖額度用完了，等額度恢復或換方案。可以請 Claude 先畫最重要的幾張。</p>
+<p><strong>角色長得跟參考照片的人一樣</strong>：表示拿真人照片當參考圖了。請它改成「只用文字描述造型、畫風參考原創角色」重畫。</p></section>
+<section class="box video" id="video"><div class="boxtitle">🎬 影片大綱：第 3 課（約 5 分鐘）</div><div class="table"><table><thead><tr><th>鏡頭</th><th>畫面</th><th>旁白重點</th></tr></thead><tbody><tr><td data-label="鏡頭">1</td><td data-label="畫面">角色三視圖總覽慢慢推近</td><td data-label="旁白重點">「這些角色都是 GPT 畫的，但我一次都沒打開 ChatGPT。」</td></tr><tr><td data-label="鏡頭">2</td><td data-label="畫面">流程動畫：你 → Claude → GPT → 資料夾</td><td data-label="旁白重點">Claude 替你操作 ChatGPT 裡的 codex</td></tr><tr><td data-label="鏡頭">3</td><td data-label="畫面">chatgpt.com/download、安裝、登入</td><td data-label="旁白重點">裝好 ChatGPT 桌面版就有 codex；用的是你的 ChatGPT 額度</td></tr><tr><td data-label="鏡頭">4</td><td data-label="畫面">打字「以後畫圖都用 GPT」</td><td data-label="旁白重點">講一次，Claude 會記住</td></tr><tr><td data-label="鏡頭">5</td><td data-label="畫面">指令放大，逐段標註</td><td data-label="旁白重點">看得懂就好：exec、提示詞、-i 參考圖</td></tr><tr><td data-label="鏡頭">6</td><td data-label="畫面">企劃圖四格，劃掉戰鬥和怪物</td><td data-label="旁白重點">先畫企劃圖決定方向</td></tr><tr><td data-label="鏡頭">7</td><td data-label="畫面">三視圖重點條列＋小葵三視圖</td><td data-label="旁白重點">A 字站姿、空手、灰背景、不要飾品</td></tr><tr><td data-label="鏡頭">8</td><td data-label="畫面">鎖頭框 → 文字描述 → Kevin（不出現真人照）</td><td data-label="旁白重點">真人照只當造型參考，畫成原創公仔</td></tr><tr><td data-label="鏡頭">9</td><td data-label="畫面">備用角色庫一張張出現</td><td data-label="旁白重點">一次畫一整批</td></tr><tr><td data-label="鏡頭">10</td><td data-label="畫面">回頭看鏡頭的失敗例（可用文字示意）→ 重畫</td><td data-label="旁白重點">看圖挑錯，直接說哪裡要改</td></tr></tbody></table></div></section>
+<nav class="pager"><a class="prev" href="02-安裝與登入.html">← 第 2 課 安裝與第一個作品</a><a class="next" href="04-連接網路服務.html">第 4 課 連接網路服務 →</a></nav>
+</main>
+<script>
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{
+  const box=b.parentElement, t=(box.querySelector('code')||box.querySelector('.saytext')).innerText;
+  navigator.clipboard&&navigator.clipboard.writeText(t).then(()=>{b.textContent='已複製';setTimeout(()=>b.textContent='複製',1500)});
+}));
+</script>
+</body>
+</html>

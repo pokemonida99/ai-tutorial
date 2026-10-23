@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 5 課 上線給別人玩</title>
+<meta name="description" content="用 GitHub Pages 免費把作品變成網址。Claude 會幫你整理、上傳，但每次推上網之前一定先問你。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><a href="index.html">AI 零基礎創作教學</a><span>第 5 課／共 6 課</span></header>
+<main>
+<div class="hero"><div class="kicker">第 5 課</div><h1>把遊戲放上網：一個網址，朋友手機打開就能玩</h1><p class="lead">用 GitHub Pages 免費把作品變成網址。Claude 會幫你整理、上傳，但每次推上網之前一定先問你。</p>
+<div class="meta">約 10 分鐘・需要 GitHub 帳號（免費）</div></div>
+<details class="toc"><summary>本課步驟（8 步）</summary><ol><li><a href="#step1">先搞懂三個詞</a></li><li><a href="#step2">註冊 GitHub 帳號</a></li><li><a href="#step3">讓電腦登入 GitHub 一次</a></li><li><a href="#step4">先在自己電腦上玩過</a></li><li><a href="#step5">跟 Claude 說：放上 GitHub Pages</a></li><li><a href="#step6">Claude 先問，你說好才推</a></li><li><a href="#step7">打開網址，分享給朋友</a></li><li><a href="#step8">之後改版，固定這個節奏</a></li></ol><a href="#stuck">常見卡關</a> · <a href="#video">影片大綱</a></details>
+<div class="box learn"><div class="boxtitle">這一課你會學到</div><ul><li>GitHub、GitHub Pages、「推上去」是什麼意思</li><li>第一次讓電腦登入 GitHub</li><li>請 Claude 建倉庫、開 Pages、推上去</li><li>之後改版的固定流程：改 → 本機測 → 問你 → 推</li></ul></div>
+<section class="step" id="step1"><div class="stephead"><span class="num">1</span><h3>先搞懂三個詞</h3></div><div class="stepbody"><div class="cards"><div class="card"><div class="icon">📦</div><div><div class="nt">GitHub</div><div class="nd">放作品檔案的雲端倉庫。每個作品一個「倉庫」（repo）</div></div></div><div class="card"><div class="icon">🌐</div><div><div class="nt">GitHub Pages</div><div class="nd">GitHub 的免費功能，把倉庫變成一個網址</div></div></div><div class="card"><div class="icon">🚀</div><div><div class="nt">推上去（push）</div><div class="nd">把電腦裡的新版本送到 GitHub，網址上的內容就會更新</div></div></div></div>
+<div class="flow"><div class="node"><div class="icon">💻</div><div class="nt">你的資料夾</div><div class="nd">Claude 在這裡做遊戲</div></div><div class="arrow" aria-hidden="true"></div><div class="node"><div class="icon">📝</div><div class="nt">存一個版本</div><div class="nd">commit：替這一版留紀錄</div></div><div class="arrow" aria-hidden="true"></div><div class="node"><div class="icon">🙋</div><div class="nt">Claude 問你</div><div class="nd">「要推上去嗎？」</div></div><div class="arrow" aria-hidden="true"></div><div class="node"><div class="icon">📦</div><div class="nt">GitHub 倉庫</div><div class="nd">你說好才推</div></div><div class="arrow" aria-hidden="true"></div><div class="node"><div class="icon">📱</div><div class="nt">網址</div><div class="nd">朋友打開就能玩</div></div></div><div class="flowcap">從你的電腦到朋友的手機</div></div></section>
+<section class="step" id="step2"><div class="stephead"><span class="num">2</span><h3>註冊 GitHub 帳號</h3></div><div class="stepbody"><p>到 <a href="https://github.com" target="_blank" rel="noopener">github.com</a> 自己註冊一個免費帳號。<strong>帳號要自己建</strong>，Claude 不會幫你註冊、也不會幫你輸入密碼。</p>
+<p>帳號名稱會出現在網址裡，例如帳號叫 <code>pokemonida99</code>，網址就是 <code>pokemonida99.github.io/作品名/</code>。取一個你願意公開的名字。</p></div></section>
+<section class="step" id="step3"><div class="stephead"><span class="num">3</span><h3>讓電腦登入 GitHub 一次</h3></div><div class="stepbody"><p>Claude 會請你在 Claude 旁邊的終端機打一行指令（或請它幫你開）：</p>
+<div class="code"><pre><code>gh auth login</code></pre><button class="copy" type="button">複製</button></div>
+<p>照提示選 GitHub.com、用瀏覽器登入，在 GitHub 的官方網頁按授權。這一次做完，之後 Claude 就能幫你推了。</p>
+<div class="box tip"><div class="boxtitle">小提醒</div><p>如果 Claude 說電腦還沒有 <code>gh</code> 這個工具，請它幫你安裝。安裝時它會先問你。</p></div></div></section>
+<section class="step" id="step4"><div class="stephead"><span class="num">4</span><h3>先在自己電腦上玩過</h3></div><div class="stepbody"><p>上網之前，Claude 會在內建瀏覽器用<strong>手機尺寸</strong>開起來測：能不能點、會不會卡、字有沒有被切掉，再給你看截圖。你自己也玩一下，覺得可以了再上線。</p>
+<div class="figs n2"><figure class="phone"><a href="img/walk-phone.jpg" target="_blank"><img src="img/walk-phone.jpg" alt="開發時用手機尺寸測試角色走路" loading="lazy"></a><figcaption>開發時用手機尺寸測試角色走路</figcaption></figure><figure class="phone"><a href="img/live-apocalypse-play.jpg" target="_blank"><img src="img/live-apocalypse-play.jpg" alt="現在的線上版" loading="lazy"></a><figcaption>現在的線上版</figcaption></figure></div></div></section>
+<section class="step" id="step5"><div class="stephead"><span class="num">5</span><h3>跟 Claude 說：放上 GitHub Pages</h3></div><div class="stepbody"><p>《上班啟示錄》第一次上線，作者就是說這一句：</p>
+<div class="say"><div class="saylabel">💬 你可以這樣說</div><p class="saytext">建 git repo 放上 GitHub Pages。</p><button class="copy" type="button">複製</button></div>
+<p>Claude 會做這些事：建一個倉庫、把<strong>該公開的檔案</strong>放進去（原始大圖、真人參考照這類不會放）、開啟 Pages、推上去，最後給你網址。</p>
+<div class="box warn"><div class="boxtitle">注意</div><p>上網前可以多問一句：「哪些檔案會被放上去？列給我看。」確認裡面沒有真人照片、私人文件、帳號資料。</p></div></div></section>
+<section class="step" id="step6"><div class="stephead"><span class="num">6</span><h3>Claude 先問，你說好才推</h3></div><div class="stepbody"><p>第一次之後，每次改版 Claude 做完都會先停下來問你，不會自己推上網。真實的樣子大概是：</p>
+<div class="chat"><div class="bubble ai"><span class="who">Claude</span>接電話挑戰改成三關了，本機手機尺寸測過，三關都能過關、最佳紀錄有存。要推上 GitHub Pages 嗎？</div><div class="bubble me"><span class="who">你</span>推上去。</div><div class="bubble ai"><span class="who">Claude</span>已推上去，網址一兩分鐘後會更新成 v0.6.2。</div><div class="chatcap">對話示意（不是 app 截圖）</div></div>
+<div class="shot"><div class="shotcode">待補截圖 H</div><div class="shottitle">Claude 問「要推上去嗎？」的對話畫面</div><div class="shotbody"><p>需要：真實對話裡 Claude 做完、問要不要推的那一段截圖。</p></div></div></div></section>
+<section class="step" id="step7"><div class="stephead"><span class="num">7</span><h3>打開網址，分享給朋友</h3></div><div class="stepbody"><p>等一兩分鐘，打開網址就是新版：<a href="https://pokemonida99.github.io/office-apocalypse/" target="_blank" rel="noopener">pokemonida99.github.io/office-apocalypse</a></p>
+<div class="figs n1"><figure class="phone"><a href="img/live-apocalypse-cover.jpg" target="_blank"><img src="img/live-apocalypse-cover.jpg" alt="線上版封面：手機打開就能玩，還可以加到主畫面" loading="lazy"></a><figcaption>線上版封面：手機打開就能玩，還可以加到主畫面</figcaption></figure></div>
+<p>分享時提醒朋友：用 Chrome 或 Safari 打開，LINE、FB 裡面直接點開的瀏覽器有時候跑不動。iPhone 可以按「分享 → 加入主畫面」，用起來就像 App。</p></div></section>
+<section class="step" id="step8"><div class="stephead"><span class="num">8</span><h3>之後改版，固定這個節奏</h3></div><div class="stepbody"><p>《上班啟示錄》從 v0.1 一路改到 v0.6.2，每次都是同樣四步：</p>
+<ol><li><strong>說要改什麼</strong>：「磁鐵有點太強，再多一個等級」</li><li><strong>Claude 改好、自己測</strong>，給你看截圖</li><li><strong>Claude 問你要不要推</strong></li><li><strong>你說「推上去」</strong>，一兩分鐘後網址更新</li></ol>
+<div class="figs n1"><figure><a href="img/upgrades.jpg" target="_blank"><img src="img/upgrades.jpg" alt="每一版加了什麼，Claude 都會記在說明文件裡" loading="lazy"></a><figcaption>每一版加了什麼，Claude 都會記在說明文件裡</figcaption></figure></div></div></section>
+<section class="box stuck" id="stuck"><div class="boxtitle">🧱 常見卡關</div><p><strong>網址打開是 404</strong>：Pages 剛開通要等幾分鐘。等五分鐘還是不行，請 Claude 檢查 Pages 設定。</p>
+<p><strong>朋友看到的還是舊版</strong>：手機有快取。請朋友重新整理，或請 Claude 改版本號（它通常會順便處理）。</p>
+<p><strong>推不上去，說要登入</strong>：電腦的 GitHub 登入過期了，再跑一次 <code>gh auth login</code>。</p>
+<p><strong>LINE 裡打開跑不動</strong>：請朋友改用 Chrome 或 Safari 開。《上班啟示錄》開不起來時會跳出說明卡告訴玩家怎麼辦。</p>
+<p><strong>不想公開的檔案被放上去了</strong>：馬上跟 Claude 說，它會把檔案移出倉庫。但已經公開過的東西可能被別人存走，所以<strong>推之前先看清單</strong>最保險。</p></section>
+<section class="box video" id="video"><div class="boxtitle">🎬 影片大綱：第 5 課（約 4 分鐘）</div><div class="table"><table><thead><tr><th>鏡頭</th><th>畫面</th><th>旁白重點</th></tr></thead><tbody><tr><td data-label="鏡頭">1</td><td data-label="畫面">手機掃 QR code 打開遊戲</td><td data-label="旁白重點">「做好的遊戲，傳一個網址，朋友就能玩。」</td></tr><tr><td data-label="鏡頭">2</td><td data-label="畫面">三張卡：GitHub、Pages、推上去</td><td data-label="旁白重點">倉庫、網址、送新版上去</td></tr><tr><td data-label="鏡頭">3</td><td data-label="畫面">github.com 註冊頁（不拍帳號資料）</td><td data-label="旁白重點">帳號自己建，名字會出現在網址裡</td></tr><tr><td data-label="鏡頭">4</td><td data-label="畫面">終端機打 gh auth login，瀏覽器按授權</td><td data-label="旁白重點">只要做一次</td></tr><tr><td data-label="鏡頭">5</td><td data-label="畫面">Claude 在內建瀏覽器用手機尺寸測遊戲</td><td data-label="旁白重點">上網前先在自己電腦玩過</td></tr><tr><td data-label="鏡頭">6</td><td data-label="畫面">打字「建 git repo 放上 GitHub Pages」</td><td data-label="旁白重點">一句話上線；可以先問要放哪些檔案</td></tr><tr><td data-label="鏡頭">7</td><td data-label="畫面">Claude 問「要推上去嗎？」→ 回「推上去」</td><td data-label="旁白重點">Claude 一定先問，你說好才推</td></tr><tr><td data-label="鏡頭">8</td><td data-label="畫面">網址打開、加到主畫面</td><td data-label="旁白重點">用 Chrome／Safari 開，可以加到主畫面</td></tr><tr><td data-label="鏡頭">9</td><td data-label="畫面">版本號 v0.1 → v0.6.2 快速跳</td><td data-label="旁白重點">改、測、問、推，一直循環</td></tr></tbody></table></div></section>
+<nav class="pager"><a class="prev" href="04-連接網路服務.html">← 第 4 課 連接網路服務</a><a class="next" href="06-安全與費用.html">第 6 課 安全與費用 →</a></nav>
+</main>
+<script>
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{
+  const box=b.parentElement, t=(box.querySelector('code')||box.querySelector('.saytext')).innerText;
+  navigator.clipboard&&navigator.clipboard.writeText(t).then(()=>{b.textContent='已複製';setTimeout(()=>b.textContent='複製',1500)});
+}));
+</script>
+</body>
+</html>
