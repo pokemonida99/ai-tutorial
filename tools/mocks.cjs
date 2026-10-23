@@ -1,6 +1,6 @@
-// 把 tools/mocks.html 裡每個 .mock 存成 img/<id>.png。用法：node tools/mocks.cjs（要先有 puppeteer-core 和 Chrome）
+// 把 tools/mocks.html 裡每個 .mock 存成 img/<id>.png。用法：node tools/mocks.cjs（要有 puppeteer-core 和 Chrome；puppeteer-core 不在這裡的話用 PUPPETEER=<路徑> 指定）
 const path = require('path');
-const puppeteer = require(process.env.PUPPETEER || '/Users/hermes/Public/0720/office-reel/node_modules/puppeteer-core');
+const puppeteer = require(process.env.PUPPETEER || 'puppeteer-core');
 (async () => {
   const b = await puppeteer.launch({headless: true, executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
   const pg = await b.newPage();
