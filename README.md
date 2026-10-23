@@ -32,5 +32,5 @@ launch.json 的 `ai-tutorial`（port 4470），或 `python3 -m http.server 4470 
 ## 規則
 - 不放真人參考照（在 `office-apocalypse/work/refs/`，私人）。
 - 截圖裡的 Email、帳號名稱要遮。餐點表右上的迪士尼角色已模糊。
-- 待補截圖 A～H（Claude 桌面版、連接器、授權畫面）要使用者提供，目錄頁最下面有清單。
+- Claude 桌面版、連接器、授權畫面這 8 張（img/mock-*.png）是程式畫的示意圖，原稿在 `tools/mocks.html`，`node tools/mocks.cjs` 重新產生。以後有真的截圖可以換掉。
 - 每課最後的「影片大綱」之後要拆成一課一支教學影片。

@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>教學示意圖</title>
+<!-- 第 2、4、5 課的 app 畫面示意圖。node tools/mocks.cjs 會把每個 .mock 存成 img/mock-*.png -->
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 20px; background: #ddd; font: 15px/1.6 "PingFang TC", system-ui, sans-serif; color: #2b2620; display: grid; gap: 20px; }
+  .mock { width: 960px; height: 600px; position: relative; padding: 18px; background: linear-gradient(135deg, #c9d6e3, #e7d8c9); }
+  .win { position: absolute; inset: 18px; background: #faf8f4; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,.18); overflow: hidden; display: flex; flex-direction: column; }
+  .bar { height: 38px; flex: none; display: flex; align-items: center; gap: 8px; padding: 0 14px; background: #efebe4; border-bottom: 1px solid #e2dcd2; font-size: 13px; color: #6f655a; }
+  .dots { display: flex; gap: 7px; margin-right: 10px; }
+  .dots i { width: 12px; height: 12px; border-radius: 50%; background: #ff5f57; }
+  .dots i:nth-child(2) { background: #febc2e; } .dots i:nth-child(3) { background: #28c840; }
+  .body { flex: 1; display: flex; min-height: 0; }
+  .side { width: 210px; flex: none; background: #f2eee8; border-right: 1px solid #e2dcd2; padding: 12px; font-size: 13.5px; }
+  .side .new { background: #fff; border: 1px solid #ddd5ca; border-radius: 8px; padding: 6px 10px; font-weight: 700; margin-bottom: 12px; }
+  .side .h { font-size: 12px; color: #9a8f82; margin: 10px 0 4px; }
+  .side .it { padding: 5px 8px; border-radius: 6px; color: #4a4239; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .side .it.on { background: #e6dfd5; font-weight: 700; }
+  .main { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+  .tabs { display: flex; gap: 4px; padding: 10px 16px 0; }
+  .tab { padding: 5px 14px; border-radius: 99px; font-size: 13.5px; color: #6f655a; }
+  .tab.on { background: #2b2620; color: #fff; font-weight: 700; }
+  .center { flex: 1; display: grid; place-items: center; text-align: center; }
+  .center h2 { margin: 0 0 6px; font-size: 26px; }
+  .input { margin: 12px 16px 16px; border: 1px solid #d8cfc3; background: #fff; border-radius: 14px; padding: 12px 14px; min-height: 84px; position: relative; color: #9a8f82; }
+  .input .chip { display: inline-block; font-size: 12.5px; background: #f2eee8; color: #4a4239; border-radius: 99px; padding: 2px 10px; position: absolute; left: 12px; bottom: 10px; }
+  .input .send { position: absolute; right: 12px; bottom: 10px; width: 30px; height: 30px; border-radius: 50%; background: #d97757; color: #fff; display: grid; place-items: center; font-weight: 800; }
+  .msgs { flex: 1; padding: 16px 22px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
+  .me { align-self: flex-end; max-width: 70%; background: #ece6dd; border-radius: 14px; padding: 9px 13px; }
+  .ai { max-width: 82%; }
+  .tool { font-size: 12.5px; color: #6f655a; background: #f2eee8; border-radius: 8px; padding: 4px 10px; display: inline-block; margin: 2px 0; font-family: ui-monospace, Menlo, monospace; }
+  .ai ol { margin: 4px 0; padding-left: 1.3em; }
+  [data-mark] { outline: 3px solid #e2643a; outline-offset: 3px; border-radius: 8px; }
+  .hl { position: absolute; border: 3px solid #e2643a; border-radius: 12px; box-shadow: 0 0 0 4px rgba(226,100,58,.18); pointer-events: none; }
+  .tag { position: absolute; background: #e2643a; color: #fff; font-weight: 800; font-size: 14px; padding: 3px 10px; border-radius: 99px; white-space: nowrap; }
+  .card { background: #fff; border: 1px solid #ddd5ca; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+  .btn { display: block; text-align: center; border-radius: 10px; padding: 9px 12px; font-weight: 700; border: 1px solid #d8cfc3; background: #fff; }
+  .btn.dark { background: #2b2620; color: #fff; border-color: #2b2620; }
+  .btn.orange { background: #d97757; color: #fff; border-color: #d97757; }
+  .shade { position: absolute; inset: 0; background: rgba(40,30,20,.28); }
+  .row { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #eee7dd; }
+  .row .ic { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; font-size: 20px; background: #f2eee8; flex: none; }
+  .row .t { font-weight: 700; } .row .d { font-size: 12.5px; color: #8a7f72; }
+  .row .r { margin-left: auto; }
+  .pill { font-size: 12.5px; border-radius: 99px; padding: 3px 12px; border: 1px solid #d8cfc3; }
+  .pill.ok { background: #e3f4ea; color: #2f8a57; border-color: #bfe3cc; }
+  .blur { filter: blur(4px); }
+  code { font-family: ui-monospace, Menlo, monospace; font-size: 13px; background: #f2eee8; padding: 1px 6px; border-radius: 5px; }
+</style>
+</head>
+<body>
+
+<!-- A 登入 -->
+<div class="mock" id="mock-a-login">
+  <div class="win">
+    <div class="bar"><div class="dots"><i></i><i></i><i></i></div>Claude</div>
+    <div class="center">
+      <div class="card" style="width:360px;padding:26px 28px;text-align:left">
+        <div style="font-size:24px;font-weight:800;text-align:center;margin-bottom:4px">登入 Claude</div>
+        <div style="font-size:13px;color:#8a7f72;text-align:center;margin-bottom:16px">第一次打開會看到這個畫面</div>
+        <div class="btn" style="margin-bottom:10px" data-mark="選一種方式登入" data-side="right">G　用 Google 帳號繼續</div>
+        <div style="text-align:center;font-size:12px;color:#9a8f82;margin:6px 0">或</div>
+        <div style="border:1px solid #d8cfc3;border-radius:10px;padding:9px 12px;color:#b3a89b;margin-bottom:10px">輸入你的 Email</div>
+        <div class="btn dark">用 Email 繼續</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- B Code 分頁 -->
+<div class="mock" id="mock-b-code">
+  <div class="win">
+    <div class="bar"><div class="dots"><i></i><i></i><i></i></div>Claude</div>
+    <div class="body">
+      <div class="side">
+        <div class="new">＋ 新工作</div>
+        <div class="h">最近</div>
+        <div class="it on">11 月餐點表</div>
+        <div class="it">上班啟示錄 v0.6</div>
+        <div class="it">打卡衝衝衝</div>
+        <div class="it">30 秒宣傳片</div>
+      </div>
+      <div class="main">
+        <div class="tabs"><span class="tab">Chat</span><span class="tab on" data-mark="① 切到 Code" data-side="right">Code</span></div>
+        <div class="center"><div><h2>今天要做什麼？</h2><div style="color:#8a7f72">用中文說就好，Claude 會在你選的資料夾裡動手做</div></div></div>
+        <div class="input">例如：把資料夾裡的手寫菜單做成 Word 和 PDF<span class="chip" data-mark="② 這是工作資料夾" data-side="right">📁 AI作品</span><span class="send">↑</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- C 選資料夾 -->
+<div class="mock" id="mock-c-folder">
+  <div class="win">
+    <div class="bar"><div class="dots"><i></i><i></i><i></i></div>Claude</div>
+    <div class="body">
+      <div class="side"><div class="new">＋ 新工作</div></div>
+      <div class="main"><div class="tabs"><span class="tab">Chat</span><span class="tab on">Code</span></div><div class="center"></div></div>
+    </div>
+  </div>
+  <div class="shade"></div>
+  <div class="card" style="position:absolute;left:150px;top:80px;width:660px;height:430px;display:flex;flex-direction:column;overflow:hidden">
+    <div style="padding:12px 16px;border-bottom:1px solid #eee7dd;font-weight:800">選擇工作資料夾</div>
+    <div style="display:flex;flex:1;min-height:0">
+      <div style="width:170px;background:#f7f4ef;padding:12px;font-size:13.5px;line-height:2">
+        <div style="font-size:12px;color:#9a8f82">位置</div>🏠 家目錄<br>🖥 桌面<br><b>📄 文件</b><br>⬇️ 下載項目
+      </div>
+      <div style="flex:1;padding:12px 16px;font-size:14px;line-height:2.1">
+        <div style="font-size:12px;color:#9a8f82">文件</div>
+        <div>📁 工作</div>
+        <div style="background:#2f6db3;color:#fff;border-radius:6px;padding:0 8px;margin:0 -8px" data-mark="選你建好的資料夾" data-side="top-right">📁 AI作品</div>
+        <div>📁 照片</div>
+        <div>📁 下載的檔案</div>
+        <div style="margin-top:8px;font-size:12.5px;color:#8a7f72">＋ 新增資料夾</div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:flex-end;gap:10px;padding:12px 16px;border-top:1px solid #eee7dd">
+      <span class="btn" style="width:90px">取消</span><span class="btn orange" style="width:90px" data-mark="再按選擇" data-side="left">選擇</span>
+    </div>
+  </div>
+</div>
+
+<!-- D 第一則訊息 -->
+<div class="mock" id="mock-d-first">
+  <div class="win">
+    <div class="bar"><div class="dots"><i></i><i></i><i></i></div>Claude ・ 11 月餐點表</div>
+    <div class="body">
+      <div class="main">
+        <div class="tabs"><span class="tab">Chat</span><span class="tab on">Code</span><span style="margin-left:auto;font-size:12.5px;color:#8a7f72">📁 AI作品</span></div>
+        <div class="msgs">
+          <div class="me">資料夾裡有兩張手寫照片，第一張是午餐、第二張是點心。請幫我做成「115 年 11 月份餐點表」，Word 和 PDF 各一份，A4 一頁放得下，字要大。看不清楚的字先列出來問我，不要自己猜。</div>
+          <div class="ai">
+            <span class="tool">讀取 午餐手稿.jpg</span> <span class="tool">讀取 點心手稿.jpg</span>
+            <div style="margin-top:6px">兩張都看完了。菜色是兩週一循環，第 3、4 週照右邊標的日期重複。開始做之前，有三個地方想跟你確認：</div>
+            <ol data-mark="看不清楚的地方，它會先問你" data-side="bottom-right">
+              <li>點心 11/8 和 11/9 中間畫了雙向箭頭，是要<b>兩天互換</b>嗎？</li>
+              <li>11/6「蔬菜粥／蔬菜煎餅」被劃掉，改成「蘿蔔粥／蘿蔔絲餅」，對嗎？</li>
+              <li>11/13 第二個字看不清楚，是「玉米芝麻飯糰」嗎？</li>
+            </ol>
+          </div>
+        </div>
+        <div class="input">回覆 Claude…<span class="send">↑</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- E 權限詢問 -->
+<div class="mock" id="mock-e-permission">
+  <div class="win">
+    <div class="bar"><div class="dots"><i></i><i></i><i></i></div>Claude ・ 11 月餐點表</div>
+    <div class="body">
+      <div class="main">
+        <div class="tabs"><span class="tab">Chat</span><span class="tab on">Code</span></div>
+        <div class="msgs">
+          <div class="me">對，箭頭是互換。其他都照你說的。</div>
+          <div class="ai">好，我寫一個小程式把表格排好，產生 Word 和 PDF。</div>
+          <div class="card" style="padding:14px 16px;max-width:620px;border-color:#e2643a" data-mark="看得懂就允許；看不懂就拒絕，再問它要做什麼" data-side="bottom-left">
+            <div style="font-weight:800;margin-bottom:6px">Claude 想要執行這個指令</div>
+            <div style="margin-bottom:6px"><code>python3 build_menu.py 11月餐點表</code></div>
+            <div style="font-size:13px;color:#6f655a;margin-bottom:12px">用途：產生「11月餐點表.docx」和「11月餐點表.pdf」，存在 AI作品 資料夾</div>
+            <div style="display:flex;gap:10px"><span class="btn orange" style="width:110px">允許</span><span class="btn" style="width:110px">拒絕</span></div>
+          </div>
+        </div>
+        <div class="input">回覆 Claude…<span class="send">↑</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- F 設定 → 連接器 -->
+<div class="mock" id="mock-f-connectors">
+  <div class="win">
+    <div class="bar"><div class="dots"><i></i><i></i><i></i></div>設定</div>
+    <div class="body">
+      <div class="side" style="width:180px;line-height:2.2">
+        <div class="it">一般</div><div class="it">帳號</div><div class="it">隱私</div><div class="it on" data-mark="① 連接器" data-side="bottom">連接器</div><div class="it">Code</div>
+      </div>
+      <div class="main" style="padding:16px 26px">
+        <div style="font-size:20px;font-weight:800">連接器</div>
+        <div style="font-size:13px;color:#8a7f72;margin-bottom:6px">讓 Claude 可以使用你的其他服務。每個都要你自己登入授權，隨時可以中斷。</div>
+        <div class="row"><div class="ic">🧊</div><div><div class="t">Higgsfield</div><div class="d">圖片轉 3D、綁骨架、生影片</div></div><span class="r pill" data-mark="② 按「連接」" data-side="left">連接</span></div>
+        <div class="row"><div class="ic">✉️</div><div><div class="t">Gmail</div><div class="d">找信、讀信、寫草稿</div></div><span class="r pill ok">已連接</span></div>
+        <div class="row"><div class="ic">📂</div><div><div class="t">Google 雲端硬碟</div><div class="d">讀寫雲端文件</div></div><span class="r pill">連接</span></div>
+        <div class="row" style="border:0"><div class="ic">＋</div><div><div class="t">瀏覽更多連接器</div><div class="d">也可以加入自訂的連接器網址</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- G Higgsfield 授權 -->
+<div class="mock" id="mock-g-authorize">
+  <div class="win">
+    <div class="bar"><div class="dots"><i></i><i></i><i></i></div>
+      <div data-mark="確認是官方網址" data-side="bottom-right" style="flex:1;max-width:520px;margin:0 auto;background:#fff;border:1px solid #e2dcd2;border-radius:8px;padding:2px 12px;font-size:12.5px;color:#4a4239">🔒 higgsfield.ai ／ 授權頁面</div>
+    </div>
+    <div class="center" style="background:#f4f2ef">
+      <div class="card" style="width:420px;padding:24px 28px;text-align:left">
+        <div style="font-size:13px;color:#8a7f72">Higgsfield</div>
+        <div style="font-size:21px;font-weight:800;margin:2px 0 10px">Claude 想要使用你的 Higgsfield 帳號</div>
+        <div style="font-size:13px;color:#6f655a;margin-bottom:6px">已登入：<span class="blur">example@mail.com</span></div>
+        <div style="font-size:14px;line-height:1.9;margin-bottom:14px" data-mark="看清楚它能做什麼" data-side="right">允許後 Claude 可以：<br>・查看你的點數餘額<br>・上傳圖片、產生 3D 模型和影片（會扣點數）<br>・查看你產生過的作品</div>
+        <div style="display:flex;gap:10px"><span class="btn orange" style="flex:1">允許</span><span class="btn" style="flex:1">取消</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- H 要推上去嗎 -->
+<div class="mock" id="mock-h-push">
+  <div class="win">
+    <div class="bar"><div class="dots"><i></i><i></i><i></i></div>Claude ・ 上班啟示錄 v0.6</div>
+    <div class="body">
+      <div class="main">
+        <div class="tabs"><span class="tab">Chat</span><span class="tab on">Code</span><span style="margin-left:auto;font-size:12.5px;color:#8a7f72">📁 office-apocalypse</span></div>
+        <div class="msgs">
+          <div class="me">接電話挑戰太好玩了，改成三關。</div>
+          <div class="ai"><span class="tool">修改 js/callgame.js</span> <span class="tool">在手機尺寸測試三關</span>
+            <div style="margin-top:6px">改好了：第 1 關新人總機、第 2 關午休搶線、第 3 關月底地獄，上一關達標才解鎖，每關各記最佳紀錄。本機用手機尺寸測過，三關都能玩。</div>
+            <div style="margin-top:6px;font-weight:700;display:inline-block" data-mark="做完一定先問" data-side="right">要推上 GitHub Pages 嗎？</div>
+          </div>
+          <div class="me" data-mark="你說好才推" data-side="left">推上去</div>
+          <div class="ai"><span class="tool">git push</span> 已推上去，一兩分鐘後網址會更新成 v0.6.2。</div>
+        </div>
+        <div class="input">回覆 Claude…<span class="send">↑</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// 每個 data-mark 的元素旁邊放一個橘色標籤
+document.querySelectorAll('.mock').forEach(m => {
+  const mr = m.getBoundingClientRect();
+  m.querySelectorAll('[data-mark]').forEach(el => {
+    const r = el.getBoundingClientRect(), t = document.createElement('div');
+    t.className = 'tag'; t.textContent = el.dataset.mark; m.appendChild(t);
+    const w = t.offsetWidth, h = t.offsetHeight, side = el.dataset.side || 'right';
+    let x = r.right + 12, y = r.top + r.height / 2 - h / 2;
+    if (side === 'left') x = r.left - w - 12;
+    if (side === 'bottom') { x = r.left; y = r.bottom + 10; }
+    if (side === 'bottom-right') { x = r.right - w; y = r.bottom + 10; }
+    if (side === 'bottom-left') { x = r.left; y = r.bottom + 10; }
+    if (side === 'top-right') { x = r.right - w; y = r.top - h - 8; }
+    t.style.left = (x - mr.left) + 'px'; t.style.top = (y - mr.top) + 'px';
+  });
+});
+</script>
+</body>
+</html>
